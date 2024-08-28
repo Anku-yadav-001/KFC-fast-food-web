@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bounce-1 {
+    animation: drop-bounce 2s ease forwards;
+    animation-delay: 0s;
+    opacity: 0;
+}
+
+.bounce-2 {
+    animation: drop-bounce 2s ease forwards;
+    animation-delay: 0.9s; 
+    opacity: 0;
+}
+
+.bounce-3 {
+    animation: drop-bounce 2s ease forwards;
+    animation-delay: 1.5s; 
+    opacity: 0;
+}
+
+@keyframes drop-bounce {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.carousel-slide {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 350px; 
+  }
+  
+  .carousel-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel-content {
+    width: 50%;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+  }
+  
+  .carousel-heading {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.5s ease 0.2s, opacity 0.5s ease 0.2s;
+  }
+  
+  .carousel-paragraph {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.5s ease 0.4s, opacity 0.5s ease 0.4s;
+  }
+  
+  .carousel-button {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.5s ease 0.6s, opacity 0.5s ease 0.6s;
+  }
+  
+  .carousel-content-active .carousel-heading {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .carousel-content-active .carousel-paragraph {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .carousel-content-active .carousel-button {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .truncate-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    max-height: 4.5rem;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+ 
+  .custom-scrollbar {
+    scroll-snap-type: x mandatory;
+  }
+  
+  .custom-scrollbar > div {
+    scroll-snap-align: center;
+  }
+  
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+  
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page {
+  animation: fadeInFromTop 1s ease-out;
+}
