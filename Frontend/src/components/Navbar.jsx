@@ -10,7 +10,7 @@ export function Navbar() {
   return (
     <div className="fixed w-full bg-white top-0 z-50"> 
       <div className="w-full h-[14vh] flex justify-center border-2">
-        <div className="w-[80%] h-full">
+        <div className="w-[85%] h-full">
           <div className="flex h-6">
             <div className="bg-red-600 mx-1 p-1"></div>
             <div className="bg-red-600 mx-1 p-1"></div>

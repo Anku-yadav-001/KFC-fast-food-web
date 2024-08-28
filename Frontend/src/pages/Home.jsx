@@ -5,7 +5,7 @@ import threeline from "../assets/threeline.svg";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import axios from "axios"
-
+import { Link } from "react-router-dom";
 export function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [carouselData,setCarouselData] =useState([])
@@ -118,12 +118,12 @@ export function Home() {
             <div className="flex justify-between my-7">
               <div className="font-bold text-3xl">MENU</div>
               <div className="flex items-center">
-                Full Menu <BiSolidRightArrow />
+                <Link to="/menu" className="hover:text-blue-700">Full Menu </Link><BiSolidRightArrow />
               </div>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between w-full overflow-x-hidden">
               {menuData.map((item, index) => (
-                <div key={index}>
+                <div key={index} className="flex flex-col items-center flex-shrink-0 w-[17%] cursor-pointer">
                   <img src={item.img} alt="" className="w-40" />
                   <p className="font-bold text-center my-3">{item.title}</p>
                 </div>
@@ -137,14 +137,14 @@ export function Home() {
             <div className="flex justify-between my-7">
               <div className="font-bold text-3xl">Featured</div>
               <div className="flex items-center">
-                See All Offers <BiSolidRightArrow />
+                <Link to="/featured">See All Offers </Link><BiSolidRightArrow />
               </div>
             </div>
             <div className="flex overflow-x-auto w-full custom-scrollbar">
               {featuredData.map((item, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[25%] p-2"
+                  className="flex-shrink-0 w-[25%] p-2 cursor-pointer"
                 >
                   <img src={item.img} alt="" className="w-[80%] h-auto text-center" />
                   <p className="font-bold my-2 text-[17px]">{item.title}</p>

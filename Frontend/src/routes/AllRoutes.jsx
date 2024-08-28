@@ -4,6 +4,7 @@ import { Bag } from "../pages/Bag"
 import { Login } from "../pages/Login"
 import { Register } from "../pages/Register"
 import { Menu } from "../pages/Menu"
+import Featured from "../pages/Featured"
 export function AllRoutes(){
     return <>
      <div>
@@ -13,6 +14,7 @@ export function AllRoutes(){
             <Route path="/login/:userId" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/menu" element={<Menu/>}/>
+            <Route path="/featured" element={<Featured/>}/>
         </Routes>
      </div>
     </>

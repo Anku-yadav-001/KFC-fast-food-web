@@ -7,7 +7,7 @@ export function Navbar1() {
   return (
     <div className="fixed w-full bg-white top-0 z-50">
         <div className="w-full flex justify-center">
-            <div className="w-[80%] flex justify-between items-center p-6">
+            <div className="w-[88%] flex justify-between items-center p-6">
                 <div>
                   <button className="px-6 py-2 bg-white rounded-full  font-bold border-2 border-black">Back to Menu</button>
                 </div>
