@@ -7,32 +7,33 @@ import { useLocation } from 'react-router-dom';
 
 const Featured = () => {
     const [featuredData,setFeaturedData] = useState([])
+    const [currentId,setCurrentId] = useState("66cee0d64ef2a2a075e8d030")
+    const [productName,setProductName] = useState()
+
   const menuCategories = [
-    'Deals',
-    'Featured',
-    'Combos',
-    'Family Meals',
-    'Fried Chicken',
-    'Tenders',
-    'Nuggets',
-    'Sandwiches',
-    'Pot Pies & Bowls',
-    'Sides, Sweets, Sauces',
-    'Drinks',
+   { name: 'Deals',id:"66cee0d64ef2a2a075e8d030"},
+    { name:'Featured',id:"66cee8a34ef2a2a075e8d051"},
+    { name:'Combos',id:"66cf33e22197c93b35c2bb23"},
+   { name: 'Family Meals',id:"66cf375d2197c93b35c2bb3a"},
+   { name: 'Fried Chicken',id:"66cf39bf2197c93b35c2bb4f"},
+   { name: 'Tenders',id:"66cf3b722197c93b35c2bb63"},
+   { name: 'Nuggets',id:"66cf51512197c93b35c2bbcc"},
+   { name: 'Pot Pies & Bowls',id:"66cf54042197c93b35c2bbfc"},
   ];
   
   async function fetchFeaturedData(){
     try {
-      let response = await axios("http://localhost:8080/featured/list-featured-item")
-      setFeaturedData(response.data.items)
+      let response = await axios(`http://localhost:8080/menu-category/list-category-items/sub-categories/${currentId}`)
+      setFeaturedData(response.data.category.items)
     } catch (error) {
       console.log("failed to fetch featured data");
     }
   }
+  
 
   useEffect(()=>{
         fetchFeaturedData()
-  },[])
+  },[featuredData])
 
   return (<>
   <Navbar/>
@@ -42,8 +43,8 @@ const Featured = () => {
         <h2 className="font-bold text-3xl mb-4">KFC MENU</h2>
         <ul>
           {menuCategories.map((category, index) => (
-            <li key={index} className="mb-2 text-md">
-              {category}
+            <li key={index} className="mb-2 text-md cursor-pointer hover:text-blue-600" onClick={()=>{setCurrentId(category.id);setProductName(category.name)}}>
+              {category.name}
             </li>
           ))}
         </ul>
@@ -62,7 +63,7 @@ const Featured = () => {
               Only available on KFC.com or KFC app for participating stores (before taxes, tips & fees). Excludes Chicken sandwich. Must redeem offer via... Terms & Conditions
             </p>
         <div className="mt-8">
-          <h3 className="text-2xl font-bold mb-4">DEALS</h3>
+          <h3 className="text-2xl font-bold mb-4 uppercase">{productName}</h3>
           <div className="grid grid-cols-3 gap-6">
           {featuredData.map((item, index) => (
                 <div

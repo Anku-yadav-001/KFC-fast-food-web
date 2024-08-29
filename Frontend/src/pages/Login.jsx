@@ -12,7 +12,6 @@ export function Login() {
   const [email, setEmail] = useState(""); 
 
   useEffect(() => {
-   
     const userEmail = localStorage.getItem("userEmail"); 
     if (userEmail) {
       setEmail(userEmail); 
@@ -80,8 +79,6 @@ export function Login() {
         userId,
         email, 
       });
-      console.log(response);
-      
       toast("OTP has been resent to your email.");
     } catch (error) {
       toast("Error resending OTP. Please try again.");
