@@ -6,6 +6,7 @@ const registerSchema = mongoose.Schema({
     email:{type:String,required:true},
     dob:{type:Date,required:true},
     mobile:{type:Number,required:true},
+    password:{type:String,required:true}
 })
 
 const registerModel = mongoose.model("registered-user",registerSchema)
