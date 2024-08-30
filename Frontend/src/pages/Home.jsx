@@ -56,7 +56,7 @@ export function Home() {
   return (
     <>
       <Navbar />
-      <div className="mt-[14vh] relative">
+      <div className="mt-[22vh] relative">
         <div className="flex justify-end">
           <div className="relative overflow-hidden w-full md:w-[90%]">
             <div
@@ -120,7 +120,7 @@ export function Home() {
                 <BiSolidRightArrow className="ml-1 text-sm sm:text-base" />
               </div>
             </div>
-            <div className="flex justify-between w-full overflow-x-auto">
+            <div className="flex justify-between w-full overflow-x-hidden">
               {menuData.map((item, index) => (
                 <div
                   key={index}
@@ -169,7 +169,7 @@ export function Home() {
             <img
               src={threeline}
               alt=""
-              className="h-12 sm:h-14 w-[30%] sm:w-[15%] mx-auto"
+              className="mt-[-60px] h-28 sm:h-14 w-[30%] sm:w-[15%] mx-auto"
             />
             <p className="font-bold text-xs sm:text-sm text-white mt-4">
               OUR FOOD

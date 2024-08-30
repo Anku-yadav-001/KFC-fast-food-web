@@ -3,6 +3,7 @@ import { AllRoutes } from "./routes/AllRoutes";
 import { Loader } from "./components/Loader";
 import { Menu } from "./pages/Menu";
 import { AuthMessage } from "./pages/AuthMessage";
+import { RegisterLogin } from "./pages/RegisterLogin";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -25,7 +26,8 @@ function App() {
         </div>
      
         }
-        {/* <Menu/> */}
+
+        {/* <RegisterLogin/> */}
       
     </>
   );
