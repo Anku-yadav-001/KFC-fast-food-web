@@ -5,46 +5,50 @@ import threeline from "../assets/threeline.svg";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import axios from "axios";
+
 export function Menu() {
-  const [menuData, setMenuData] = useState([])
+  const [menuData, setMenuData] = useState([]);
 
   async function fetchMenuData() {
     try {
-      let response = await axios("http://localhost:8080/menu/list-menu-items")
-      setMenuData(response.data.items)
-
+      let response = await axios("http://localhost:8080/menu/list-menu-items");
+      setMenuData(response.data.items);
     } catch (error) {
-      console.log("failed to fetch menu data");
-
+      console.log("Failed to fetch menu data");
     }
   }
 
-
   useEffect(() => {
-    fetchMenuData()
+    fetchMenuData();
   }, []);
 
   return (
     <>
       <Navbar />
-      <div className="mt-[24vh] relative">
+      <div className="mt-40 relative px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center">
-          <div className="w-[80%]">
+          <div className="w-full max-w-screen-lg">
             <div className="flex justify-start my-7">
-              <div className="font-bold text-3xl">KFC MENU</div>
+              <h1 className="font-bold text-2xl sm:text-3xl">KFC MENU</h1>
             </div>
-            <div className="grid grid-cols-5 gap-4 my-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-5">
               {menuData.map((item, index) => (
-                <div key={index} className="border border-gray-400 rounded-md cursor-pointer">
-                  <img src={item.img} alt={item.title} className="w-40 mx-auto" />
-                  <p className="font-bold text-center  bg-gray-200 py-4 rounded-md bottom-0">{item.title}</p>
+                <div
+                  key={index}
+                  className="border border-gray-400 rounded-md cursor-pointer overflow-hidden"
+                >
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-32 object-cover"
+                  />
+                  <p className="font-bold text-center bg-gray-200 py-4">{item.title}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </div>
-
       <Footer />
     </>
   );

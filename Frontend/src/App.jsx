@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AllRoutes } from "./routes/AllRoutes";
 import { Loader } from "./components/Loader";
 import { Menu } from "./pages/Menu";
+import { AuthMessage } from "./pages/AuthMessage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,7 @@ function App() {
      
         }
         {/* <Menu/> */}
+      
     </>
   );
 }
