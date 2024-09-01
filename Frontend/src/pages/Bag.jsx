@@ -1,7 +1,8 @@
 import { Footer } from "../components/Footer";
 import { Navbar1 } from "../components/Navbar1";
-
+import { useNavigate } from "react-router-dom";
 export function Bag() {
+  const navigate = useNavigate()
   return (
     <>
       <div>
@@ -12,7 +13,9 @@ export function Bag() {
               <h1 className="text-4xl sm:text-6xl font-bold leading-tight">
                 YOUR BAG IS <br /> EMPTY. LET'S <br /> START AN ORDER!
               </h1>
-              <button className="px-8 sm:px-10 py-2 rounded-full bg-[#e4002b] text-white font-bold my-6 sm:my-10">
+              <button className="px-8 sm:px-10 py-2 rounded-full bg-[#e4002b] text-white font-bold my-6 sm:my-10"
+              onClick={()=>navigate("/order-items")}
+              >
                 Start Order
               </button>
             </div>

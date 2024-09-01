@@ -11,6 +11,7 @@ export function Register() {
   const [email, setEmail] = useState("");
   const [dob, setDob] = useState(Date);
   const [mobile, setMobile] = useState();
+  const [password,setPassword] = useState()
   const [userId, setUserId] = useState();
 
   async function registerUser() {
@@ -20,13 +21,14 @@ export function Register() {
         lname,
         email,
         dob,
-        mobile
+        mobile,
+        password
       });
-      setUserId(response.data.data.userId);
-      localStorage.setItem("userEmail", JSON.stringify(email));
+      // setUserId(response.data.data.userId);
+      localStorage.setItem("user-info", JSON.stringify({email,fname}));
       toast("User registered successfully, redirecting to the login page...");
       setTimeout(() => {
-        navigate(`/login/${response.data.data.userId}`);
+        navigate(`/register/login`);
       }, 3000);
     } catch (error) {
       if (error.status === 400) {
@@ -128,6 +130,20 @@ export function Register() {
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
                 placeholder="Mobile Number"
+                className="w-full px-3 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
                 className="w-full px-3 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
               />
             </div>

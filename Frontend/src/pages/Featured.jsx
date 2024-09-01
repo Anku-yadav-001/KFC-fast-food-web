@@ -3,12 +3,14 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import axios from 'axios';
 import { FiAlertCircle, FiMenu, FiX } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
 
 const Featured = () => {
   const [featuredData, setFeaturedData] = useState([]);
   const [currentId, setCurrentId] = useState("66cee0d64ef2a2a075e8d030");
   const [productName, setProductName] = useState();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate()
 
   const menuCategories = [
     { name: 'Deals', id: "66cee0d64ef2a2a075e8d030" },
@@ -92,6 +94,7 @@ const Featured = () => {
                 <div
                   key={index}
                   className="flex flex-col items-center bg-white border border-gray-300 rounded-md p-4 cursor-pointer"
+                  onClick={()=>navigate("/order-items")}
                 >
                   <img src={item.img} alt={item.title} className="w-full h-40 object-cover mb-2 rounded-md" />
                   <p className="font-bold text-lg mb-1">{item.title}</p>

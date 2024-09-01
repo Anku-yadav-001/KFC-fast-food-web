@@ -2,14 +2,22 @@ import kfclogo from "../assets/kfclogo.svg";
 import search from "../assets/search.svg";
 import loginicon from "../assets/loginicon.svg";
 import bag from "../assets/bag.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaLocationDot, FaBars} from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/Auth";
+import { FiLogOut } from "react-icons/fi";
 
 export function Navbar() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const token = JSON.parse(localStorage.getItem("authToken"))
+  const user = JSON.parse(localStorage.getItem("user-info") || "{}");
+  const navigate = useNavigate()
+  const {logout} = useContext(AuthContext)
+
 
   return (
     <div className="fixed w-full bg-white top-0 z-50">
@@ -23,13 +31,13 @@ export function Navbar() {
             />
           </div>
 
-          {/* Desktop Menu */}
+       
           <div className="hidden md:flex justify-between w-[80%] items-center">
             <div className="flex space-x-4 font-bold items-center">
-              <div className="cursor-pointer">Menu</div>
-              <div className="cursor-pointer">Careers</div>
+              <div className="cursor-pointer"><Link to="/menu">Menu</Link></div>
+              <div className="cursor-pointer"><Link to="/careers">Careers</Link></div>
               <div className="cursor-pointer">About</div>
-              <div className="cursor-pointer">Find A KFC</div>
+              <div className="cursor-pointer"><Link to="/find-a-kfc">Find A KFC</Link></div>
               <div className="relative flex items-center">
                 <input
                   type="text"
@@ -49,16 +57,17 @@ export function Navbar() {
                 />
               </div>
             </div>
-            <div className="flex justify-between items-center w-[30%] text-gray-400">
+            <div className="flex justify-between items-center w-[35%] text-gray-400">
               <div>
-                <Link to="/register">
+                {token?<h1 className="font-bold text-black">Hi, {user.fname}</h1>:<Link to="/register">
                   <img
                     src={loginicon}
                     alt="login icon"
                     id="login icon"
                     className="h-7 cursor-pointer"
-                  />
-                </Link>
+                    />
+                    </Link>
+                  }
               </div>
               |
               <div>
@@ -73,14 +82,14 @@ export function Navbar() {
               </div>
               |
               <div>
-                <button className="bg-red-600 px-8 py-2 rounded-full font-bold text-white cursor-pointer">
+                <button className="bg-red-600 px-8 py-2 rounded-full font-bold text-white cursor-pointer" onClick={()=>navigate("/order-items")}>
                   Start Order
                 </button>
-              </div>
+              </div>|
+              <div className="cursor-pointer text-black bg-gray-400 p-2 rounded-full" onClick={logout}><FiLogOut size={18}/></div>
             </div>
           </div>
 
-          {/* Hamburger Menu for Mobile */}
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -92,7 +101,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
         <div className="md:hidden w-full bg-white shadow-lg">
           <div className="flex flex-col items-center">
@@ -122,11 +130,12 @@ export function Navbar() {
             <Link to="/about" className="p-2 cursor-pointer">
               About
             </Link>
-            <Link to="/find-kfc" className="p-2 cursor-pointer">
+            <Link to="/find-a-kfc" className="p-2 cursor-pointer">
               Find A KFC
             </Link>
             <div className="flex flex-col items-center mt-4 text-gray-400">
-              <Link to="/register" className="mb-2">
+              {
+                token?<h1 className="font-bold text-black">Hi, {user.fname}</h1>:<Link to="/register" className="mb-2">
                 <img
                   src={loginicon}
                   alt="login icon"
@@ -134,6 +143,7 @@ export function Navbar() {
                   className="h-7 cursor-pointer"
                 />
               </Link>
+              }
               <Link to="/cart" className="mb-2">
                 <img
                   src={bag}
@@ -142,9 +152,10 @@ export function Navbar() {
                   className="h-7 cursor-pointer"
                 />
               </Link>
-              <button className="bg-red-600 px-8 py-2 rounded-full font-bold text-white cursor-pointer my-4">
+              <button className="bg-red-600 px-8 py-2 rounded-full font-bold text-white cursor-pointer my-4" onClick={()=>navigate("/order-items")}>
                 Start Order
               </button>
+              <div className="cursor-pointer text-black bg-gray-400 p-2 rounded-full mb-2" onClick={logout}><FiLogOut/></div>
             </div>
           </div>
         </div>

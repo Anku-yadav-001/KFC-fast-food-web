@@ -5,9 +5,12 @@ import threeline from "../assets/threeline.svg";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function Menu() {
   const [menuData, setMenuData] = useState([]);
+  const navigate = useNavigate()
+
 
   async function fetchMenuData() {
     try {
@@ -36,6 +39,7 @@ export function Menu() {
                 <div
                   key={index}
                   className="border border-gray-400 rounded-md cursor-pointer overflow-hidden"
+                  onClick={()=>navigate("/order-items")}
                 >
                   <img
                     src={item.img}

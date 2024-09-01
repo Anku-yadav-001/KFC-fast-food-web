@@ -4,13 +4,14 @@ import threeline from "../assets/threeline.svg";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [carouselData, setCarouselData] = useState([]);
   const [menuData, setMenuData] = useState([]);
   const [featuredData, setFeaturedData] = useState([]);
+  const navigate = useNavigate()
 
   async function fetchCarouselData() {
     try {
@@ -194,7 +195,9 @@ export function Home() {
               <div className="font-bold text-white text-sm sm:text-xl text-center sm:text-left">
                 FINGER LICKIN' GOOD® IS NOW JUST A FEW CLICKS AWAY
               </div>
-              <button className="mt-2 sm:mt-0 px-4 sm:px-8 py-2 bg-white rounded-full font-bold text-center">
+              <button className="mt-2 sm:mt-0 px-4 sm:px-8 py-2 bg-white rounded-full font-bold text-center"
+              onClick={()=>navigate("/order-items")}
+              >
                 Start Order
               </button>
             </div>

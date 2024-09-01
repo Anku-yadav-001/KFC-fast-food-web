@@ -3,7 +3,7 @@ import { AllRoutes } from "./routes/AllRoutes";
 import { Loader } from "./components/Loader";
 import { Menu } from "./pages/Menu";
 import { AuthMessage } from "./pages/AuthMessage";
-import { RegisterLogin } from "./pages/RegisterLogin";
+import FindAKfc from "./pages/FindAKfc";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -19,15 +19,14 @@ function App() {
 
   return (
     <>
-      {
+   {
         loading?<Loader/>:
         <div className="">
           <AllRoutes />
         </div>
      
-        }
+        } 
 
-        {/* <RegisterLogin/> */}
       
     </>
   );
