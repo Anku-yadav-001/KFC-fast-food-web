@@ -10,6 +10,7 @@ const carouselRouter = require("./routes/carousel.route")
 const cors = require("cors")
 const categoryRoute = require("./routes/categories.route")
 const loginRoute = require("./routes/login.route")
+const careerRoute = require("./routes/careers.route")
 
 server.use(cors())
 server.use(express.json())
@@ -19,6 +20,7 @@ server.use("/menu",menuRoute)
 server.use("/featured",featuredRoute)
 server.use("/carousel",carouselRouter)
 server.use("/menu-category",categoryRoute)
+server.use("/career",careerRoute)
 
 server.get("/",(req,res)=>{
     res.send("server is working fine")
