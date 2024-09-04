@@ -15,7 +15,7 @@ export function Home() {
 
   async function fetchCarouselData() {
     try {
-      let response = await axios.get("http://localhost:8080/carousel/list-carousel-data");
+      let response = await axios.get("https://kfc-fast-food-web.onrender.com/carousel/list-carousel-data");
       setCarouselData(response.data.items);
     } catch (error) {
       console.log("Failed to fetch carousel data from backend");
@@ -24,7 +24,7 @@ export function Home() {
 
   async function fetchMenuData() {
     try {
-      let response = await axios("http://localhost:8080/menu/list-menu-items");
+      let response = await axios("https://kfc-fast-food-web.onrender.com/menu/list-menu-items");
       setMenuData(response.data.items);
     } catch (error) {
       console.log("Failed to fetch menu data");
@@ -33,7 +33,7 @@ export function Home() {
 
   async function fetchFeaturedData() {
     try {
-      let response = await axios("http://localhost:8080/featured/list-featured-item");
+      let response = await axios("https://kfc-fast-food-web.onrender.com/featured/list-featured-item");
       setFeaturedData(response.data.items);
     } catch (error) {
       console.log("Failed to fetch featured data");

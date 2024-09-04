@@ -16,7 +16,7 @@ export function Register() {
 
   async function registerUser() {
     try {
-      const response = await axios.post("http://localhost:8080/register/user-register", {
+      const response = await axios.post("https://kfc-fast-food-web.onrender.com/register/user-register", {
         fname,
         lname,
         email,

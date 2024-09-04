@@ -55,7 +55,7 @@ export function Verification() {
 
   async function resendOTP() {
     try {
-      const response = await axios.post("http://localhost:8080/login/resend-otp", {
+      const response = await axios.post("https://kfc-fast-food-web.onrender.com/login/resend-otp", {
         userId,
         email, 
       });

@@ -11,7 +11,7 @@ export function Login() {
 
   async function handleLogin() {
     try {
-      let response = await axios.post("http://localhost:8080/login/user-login", {
+      let response = await axios.post("https://kfc-fast-food-web.onrender.com/login/user-login", {
         email,
         password
       });

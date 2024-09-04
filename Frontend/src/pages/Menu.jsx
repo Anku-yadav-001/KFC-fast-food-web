@@ -14,7 +14,7 @@ export function Menu() {
 
   async function fetchMenuData() {
     try {
-      let response = await axios("http://localhost:8080/menu/list-menu-items");
+      let response = await axios("https://kfc-fast-food-web.onrender.com/menu/list-menu-items");
       setMenuData(response.data.items);
     } catch (error) {
       console.log("Failed to fetch menu data");

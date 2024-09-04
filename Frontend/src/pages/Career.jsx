@@ -8,7 +8,7 @@ export function Career() {
 
   async function fetchCareerData() {
     try {
-      const response = await axios("http://localhost:8080/career/all-career-options");
+      const response = await axios("https://kfc-fast-food-web.onrender.com/career/all-career-options");
       setCareers(response.data.items);
     } catch (error) {
       console.error("Error fetching career data:", error);

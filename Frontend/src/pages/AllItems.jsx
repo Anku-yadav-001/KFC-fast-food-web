@@ -8,7 +8,7 @@ export function AllItems() {
 
   async function fetchFeaturedData() {
     try {
-      let response = await axios(`http://localhost:8080/menu-category/list-category-items`);
+      let response = await axios(`https://kfc-fast-food-web.onrender.com/menu-category/list-category-items`);
       setFeaturedData(response.data.categories);
     } catch (error) {
       console.log("Failed to fetch featured data", error);

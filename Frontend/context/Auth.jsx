@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
     try {
       const otpCode = otp.join("");
 
-      const response = await axios.post("http://localhost:8080/login/verify-otp", {
+      const response = await axios.post("https://kfc-fast-food-web.onrender.com/login/verify-otp", {
         userId,
         otp: otpCode,
       });
@@ -43,7 +43,7 @@ export function AuthProvider({ children }) {
 
     localStorage.removeItem("authToken");
 
-    axios.post("http://localhost:8080/login/logout", {})
+    axios.post("https://kfc-fast-food-web.onrender.com/login/logout", {})
       .then((response) => {
         console.log(response.data.message);
         toast("Logged out successfully");
