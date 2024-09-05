@@ -9,6 +9,7 @@
 - **Database**: MongoDB
 - **Authentication**: JWT (JSON Web Tokens)
 - **Icons**: Heroicons
+- **SMTP*: Email verification
 - **State Management**: Redux (or Context API)
 - **API Integration**: RESTful APIs
 
