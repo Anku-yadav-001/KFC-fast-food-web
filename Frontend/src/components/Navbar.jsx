@@ -16,7 +16,7 @@ export function Navbar({ onSearch }) {
   const token = JSON.parse(localStorage.getItem("authToken"));
   const user = JSON.parse(localStorage.getItem("user-info") || "{}");
   const navigate = useNavigate();
-  const { logout } = useContext(AuthContext);
+  const { logout,auth } = useContext(AuthContext);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -92,12 +92,16 @@ export function Navbar({ onSearch }) {
                 </button>
               </div>
               |
-              <div
+             {
+              token?(
+                <div
                 className="cursor-pointer text-black bg-gray-400 p-2 rounded-full"
                 onClick={logout}
               >
                 <FiLogOut size={18} />
               </div>
+              ):""
+             }
             </div>
           </div>
 
@@ -172,12 +176,12 @@ export function Navbar({ onSearch }) {
               >
                 Start Order
               </button>
-              <div
+             {token? (<div
                 className="cursor-pointer text-black bg-gray-400 p-2 rounded-full mb-2"
                 onClick={logout}
               >
-                <FiLogOut />
-              </div>
+            <FiLogOut/>
+              </div>):""}
             </div>
           </div>
         </div>
