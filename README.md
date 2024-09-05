@@ -64,7 +64,8 @@ npm run dev
 Open http://localhost:3000 in your browser to view the app.
 
 ### 🌐 Live Demo
-Check out the live demo here: [!KFC Clone Live Demo]("project link")
+Check out the live demo here: [KFC Clone Live Demo](project-link)
+
 
 ### 📸 Screenshots
 1. Home Page
@@ -79,23 +80,20 @@ Check out the live demo here: [!KFC Clone Live Demo]("project link")
 
 6. OTP verification
 
-### 🧪 Testing
-> You can run unit tests and integration tests for the backend and frontend by executing the following command:
-```bash
-npm run test
-```
-
 ### 📚 Learning Resources
 If you're new to any of the technologies used in this project, check out the following resources:
 
-Node.js: [!Node.js Official Documentation]()
-React: [!React Official Docs]()
-MongoDB: [!MongoDB Docs]()
-Express: [!Express Documentation]()
+- **Node.js**: [Node.js Official Documentation](https://nodejs.org/docs/latest/api/)
+- **React**: [React Official Docs](https://legacy.reactjs.org/docs/getting-started.html)
+- **MongoDB**: [MongoDB Docs](https://www.mongodb.com/docs/)
+- **Express**: [Express Documentation](https://expressjs.com/en/starter/installing.html)
+
 
 ### 👨‍💻 Author
-<b>Aman Yadav</b>
+
+**Aman Yadav**
+
 Connect with me:
 
-[GitHub]("https://github.com/Anku-yadav-001")
-[LinkedIn]("https://www.linkedin.com/in/aman-yadav-462a62258/)
+- [GitHub](https://github.com/Anku-yadav-001)
+- [LinkedIn](https://www.linkedin.com/in/aman-yadav-462a62258/)
